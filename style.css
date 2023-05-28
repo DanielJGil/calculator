@@ -12,6 +12,7 @@ body {
   background-image: url(img/numbers.jpg);
   background-size: contain;
   background-position: 100%;
+  min-width: 400px;
 }
 
 .container {
@@ -46,11 +47,6 @@ body {
   border-radius: 10px;
   transition: 0.5s;
 }
-
-/* .input:hover {
-  box-shadow: 0px 0px 30px rgb(0, 157, 255);
-  transition: 0.5s;
-} */
 
 .row {
   flex: 1;
