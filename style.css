@@ -1,7 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: "Monomaniac One", sans-serif;
-  /* font-weight: bold; */
 }
 
 body {
@@ -20,12 +19,9 @@ body {
   height: 550px;
   display: flex;
   flex-direction: column;
-  /* border: solid black 2px; */
-  /* border-radius: 15px; */
 }
 
-.result {
-  /* border: solid black 2px; */
+.display {
   flex: 1;
   border-radius: 10px;
   background-color: rgb(255, 251, 237);
