@@ -1,7 +1,8 @@
 let num = "";
 let num1 = 0;
 let num2 = 0;
-let oper = "";
+let op = "";
+let sum = "";
 
 const displayValue = [];
 
@@ -53,12 +54,27 @@ const operate = (a, b, op) => {
 };
 
 one.addEventListener("click", () => {
+  num2 = num1;
   num += "1";
+  num1 = Number(num);
+  sum = operate(sum, num1, op);
+
   display.textContent += 1;
+
+  //   console.log("1 CLICK");
+  //   console.log(`num ${num}`);
+  //   console.log(`num1 ${num1}`);
+  //   console.log(`num2 ${num2}`);
+  //   console.log(`sum ${sum}`);
+  //   console.log(`op ${op}`);
 });
 
 two.addEventListener("click", () => {
+  num2 = num1;
   num += "2";
+  num1 = Number(num);
+  sum = operate(sum, num1, op);
+
   display.textContent += 2;
 });
 
@@ -104,39 +120,62 @@ zero.addEventListener("click", () => {
 
 addOp.addEventListener("click", () => {
   op = "";
-  num1 = Number(num);
-  num = "";
   op = "+";
   display.textContent += "+";
+
+  if (num2 === 0) {
+    num2 = num1;
+    num1 = Number(num);
+    sum = num1;
+  }
+
+  num = "";
 });
 
 subtractOp.addEventListener("click", () => {
   op = "";
-  num1 = Number(num);
-  num = "";
   op = "-";
   display.textContent += "-";
+
+  if (num2 === 0) {
+    num2 = num1;
+    num1 = Number(num);
+    sum = num1;
+  }
+
+  num = "";
 });
 
 multiplyOp.addEventListener("click", () => {
   op = "";
-  num1 = Number(num);
-  num = "";
   op = "*";
   display.textContent += "*";
+
+  if (num2 === 0) {
+    num2 = num1;
+    num1 = Number(num);
+    sum = num1;
+  }
+
+  num = "";
 });
 
 divideOp.addEventListener("click", () => {
   op = "";
-  num1 = Number(num);
-  num = "";
   op = "/";
   display.textContent += "/";
+
+  if (num2 === 0) {
+    num2 = num1;
+    num1 = Number(num);
+    sum = num1;
+  }
+
+  num = "";
 });
 
 equals.addEventListener("click", () => {
   num2 = Number(num);
-  num = "";
-  let sum = operate(num1, num2, op);
   display.textContent = sum;
+  num = "";
 });
