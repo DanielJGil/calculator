@@ -55,22 +55,52 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  margin: 3px 10px;
+  margin: 4px 12px;
   background-color: rgb(255, 251, 237);
   transition: 0.25s;
-  box-shadow: 0px 0px 50px rgb(0, 0, 0);
+  box-shadow: 0px 2px 10px rgb(0, 0, 0);
 }
 
 button {
-  font-size: 35px;
   padding: 10px;
   border: none;
   background: none;
-  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 
-.button:active {
-  scale: 95%;
+.input div {
+  color: rgb(0, 0, 0);
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.button {
   transition: 0.25s;
+}
+
+.button:hover {
+  scale: 97%;
+  transition: 0.25s;
+  background-color: rgb(148, 148, 199);
+}
+
+.button:active {
+  scale: 101%;
+  transition: 0.1s;
+}
+
+.op:hover {
+  background-color: rgb(148, 199, 159);
+}
+
+.clr:hover {
+  background-color: rgb(235, 110, 110);
+}
+
+.bck:hover {
+  background-color: rgb(236, 167, 76);
+}
+
+.eqs:hover {
+  background-color: rgb(76, 236, 100);
 }
