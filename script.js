@@ -231,15 +231,25 @@ multiplyOp.addEventListener("click", () => {
     display.textContent = sum;
     display.textContent += "*";
   } else if (op === "/") {
-    sum /= Number(num);
-    sum = Number(sum);
+    if (num === "") {
+      sum += Number(num);
+      sum = Number(sum);
 
-    op = "*";
+      op = "*";
 
-    display.textContent = sum;
-    display.textContent += "*";
+      display.textContent = sum;
+      display.textContent += "*";
+    } else {
+      sum /= Number(num);
+      sum = Number(sum);
+
+      op = "*";
+
+      display.textContent = sum;
+      display.textContent += "*";
+    }
   } else {
-    if (sum === 0 || sum === "") {
+    if (sum === 0 || sum === "" || num === "") {
       sum += Number(num);
       sum = Number(sum);
 
@@ -271,13 +281,23 @@ divideOp.addEventListener("click", () => {
     display.textContent = sum;
     display.textContent += "/";
   } else if (op === "*") {
-    sum *= Number(num);
-    sum = Number(sum);
+    if (num === "") {
+      sum += Number(num);
+      sum = Number(sum);
 
-    op = "/";
+      op = "/";
 
-    display.textContent = sum;
-    display.textContent += "/";
+      display.textContent = sum;
+      display.textContent += "/";
+    } else {
+      sum *= Number(num);
+      sum = Number(sum);
+
+      op = "/";
+
+      display.textContent = sum;
+      display.textContent += "/";
+    }
   } else if (op === "-") {
     sum -= Number(num);
     sum = Number(sum);
@@ -287,7 +307,7 @@ divideOp.addEventListener("click", () => {
     display.textContent = sum;
     display.textContent += "/";
   } else {
-    if (sum === 0 || sum === "") {
+    if (sum === 0 || sum === "" || num === "") {
       sum += Number(num);
       sum = Number(sum);
 
@@ -314,8 +334,8 @@ equals.addEventListener("click", () => {
   display.textContent = sum;
   num = "";
 
-  //   console.log("CLICK");
-  //   console.log(`num ${num}`);
-  //   console.log(`sum ${sum}`);
-  //   console.log(`op ${op}`);
+  console.log("CLICK");
+  console.log(`num ${num}`);
+  console.log(`sum ${sum}`);
+  console.log(`op ${op}`);
 });
