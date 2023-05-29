@@ -1,6 +1,6 @@
 let num = "";
 let op = "";
-let sum = 0;
+let sum = "";
 
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
@@ -63,11 +63,6 @@ one.addEventListener("click", () => {
   num = Number(num);
 
   display.textContent += 1;
-
-  //   console.log("CLICK");
-  //   console.log(`num ${num}`);
-  //   console.log(`sum ${sum}`);
-  //   console.log(`op ${op}`);
 });
 
 two.addEventListener("click", () => {
@@ -134,41 +129,133 @@ zero.addEventListener("click", () => {
 });
 
 addOp.addEventListener("click", () => {
-  op = "";
-  op = "+";
-  display.textContent += "+";
+  if (op === "-") {
+    sum -= Number(num);
+    sum = Number(sum);
 
-  sum += Number(num);
+    op = "+";
+
+    display.textContent += "+";
+  } else if (op === "*") {
+    sum *= Number(num);
+    sum = Number(sum);
+
+    op = "+";
+
+    display.textContent += "+";
+  } else if (op === "/") {
+    sum /= Number(num);
+    sum = Number(sum);
+
+    op = "+";
+
+    display.textContent += "+";
+  } else {
+    sum = Number(sum);
+    op = "+";
+    display.textContent += "+";
+
+    sum += Number(num);
+  }
 
   num = "";
 });
 
 subtractOp.addEventListener("click", () => {
-  op = "";
-  op = "-";
-  display.textContent += "-";
+  if (op === "+") {
+    sum += Number(num);
+    sum = Number(sum);
 
-  sum += Number(num);
+    op = "-";
+
+    display.textContent += "-";
+  } else if (op === "*") {
+    sum *= Number(num);
+    sum = Number(sum);
+
+    op = "-";
+
+    display.textContent += "-";
+  } else if (op === "/") {
+    sum /= Number(num);
+    sum = Number(sum);
+
+    op = "-";
+
+    display.textContent += "-";
+  } else {
+    sum = Number(sum);
+    op = "+";
+    display.textContent += "+";
+
+    sum -= Number(num);
+  }
 
   num = "";
 });
 
 multiplyOp.addEventListener("click", () => {
-  op = "";
-  op = "*";
-  display.textContent += "*";
+  if (op === "-") {
+    sum -= Number(num);
+    sum = Number(sum);
 
-  sum += Number(num);
+    op = "*";
+
+    display.textContent += "*";
+  } else if (op === "+") {
+    sum += Number(num);
+    sum = Number(sum);
+
+    op = "*";
+
+    display.textContent += "*";
+  } else if (op === "/") {
+    sum /= Number(num);
+    sum = Number(sum);
+
+    op = "*";
+
+    display.textContent += "*";
+  } else {
+    sum = Number(sum);
+    op = "*";
+    display.textContent += "*";
+
+    sum += Number(num);
+  }
 
   num = "";
 });
 
 divideOp.addEventListener("click", () => {
-  op = "";
-  op = "/";
-  display.textContent += "/";
+  if (op === "+") {
+    sum += Number(num);
+    sum = Number(sum);
 
-  sum += Number(num);
+    op = "/";
+
+    display.textContent += "/";
+  } else if (op === "*") {
+    sum *= Number(num);
+    sum = Number(sum);
+
+    op = "/";
+
+    display.textContent += "/";
+  } else if (op === "-") {
+    sum -= Number(num);
+    sum = Number(sum);
+
+    op = "/";
+
+    display.textContent += "/";
+  } else {
+    sum = Number(sum);
+    op = "/";
+    display.textContent += "/";
+
+    sum += Number(num);
+  }
 
   num = "";
 });
@@ -177,4 +264,9 @@ equals.addEventListener("click", () => {
   sum = operate(sum, num, op);
   display.textContent = sum;
   num = "";
+
+  //   console.log("CLICK");
+  //   console.log(`num ${num}`);
+  //   console.log(`sum ${sum}`);
+  //   console.log(`op ${op}`);
 });
