@@ -2,7 +2,7 @@ let num = "";
 let num1 = 0;
 let num2 = 0;
 let op = "";
-let sum = "";
+let sum = 0;
 
 const displayValue = [];
 
@@ -54,67 +54,77 @@ const operate = (a, b, op) => {
 };
 
 one.addEventListener("click", () => {
-  num2 = num1;
   num += "1";
-  num1 = Number(num);
-  sum = operate(sum, num1, op);
+  num = Number(num);
 
   display.textContent += 1;
 
-  //   console.log("1 CLICK");
+  //   console.log("CLICK");
   //   console.log(`num ${num}`);
-  //   console.log(`num1 ${num1}`);
-  //   console.log(`num2 ${num2}`);
   //   console.log(`sum ${sum}`);
   //   console.log(`op ${op}`);
 });
 
 two.addEventListener("click", () => {
-  num2 = num1;
   num += "2";
-  num1 = Number(num);
-  sum = operate(sum, num1, op);
+  num = Number(num);
 
   display.textContent += 2;
 });
 
 three.addEventListener("click", () => {
   num += "3";
+  num = Number(num);
+
   display.textContent += 3;
 });
 
 four.addEventListener("click", () => {
   num += "4";
+  num = Number(num);
+
   display.textContent += 4;
 });
 
 five.addEventListener("click", () => {
   num += "5";
+  num = Number(num);
+
   display.textContent += 5;
 });
 
 six.addEventListener("click", () => {
   num += "6";
+  num = Number(num);
+
   display.textContent += 6;
 });
 
 seven.addEventListener("click", () => {
   num += "7";
+  num = Number(num);
+
   display.textContent += 7;
 });
 
 eight.addEventListener("click", () => {
   num += "8";
+  num = Number(num);
+
   display.textContent += 8;
 });
 
 nine.addEventListener("click", () => {
   num += "9";
+  num = Number(num);
+
   display.textContent += 9;
 });
 
 zero.addEventListener("click", () => {
   num += "0";
+  num = Number(num);
+
   display.textContent += 0;
 });
 
@@ -123,11 +133,7 @@ addOp.addEventListener("click", () => {
   op = "+";
   display.textContent += "+";
 
-  if (num2 === 0) {
-    num2 = num1;
-    num1 = Number(num);
-    sum = num1;
-  }
+  sum += Number(num);
 
   num = "";
 });
@@ -137,11 +143,7 @@ subtractOp.addEventListener("click", () => {
   op = "-";
   display.textContent += "-";
 
-  if (num2 === 0) {
-    num2 = num1;
-    num1 = Number(num);
-    sum = num1;
-  }
+  sum += Number(num);
 
   num = "";
 });
@@ -151,11 +153,7 @@ multiplyOp.addEventListener("click", () => {
   op = "*";
   display.textContent += "*";
 
-  if (num2 === 0) {
-    num2 = num1;
-    num1 = Number(num);
-    sum = num1;
-  }
+  sum += Number(num);
 
   num = "";
 });
@@ -165,17 +163,13 @@ divideOp.addEventListener("click", () => {
   op = "/";
   display.textContent += "/";
 
-  if (num2 === 0) {
-    num2 = num1;
-    num1 = Number(num);
-    sum = num1;
-  }
+  sum += Number(num);
 
   num = "";
 });
 
 equals.addEventListener("click", () => {
-  num2 = Number(num);
+  sum = operate(sum, num, op);
   display.textContent = sum;
   num = "";
 });
