@@ -1,10 +1,6 @@
 let num = "";
-let num1 = 0;
-let num2 = 0;
 let op = "";
 let sum = 0;
-
-const displayValue = [];
 
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
@@ -22,6 +18,7 @@ const multiplyOp = document.querySelector(".multiply");
 const divideOp = document.querySelector(".divide");
 const display = document.querySelector(".display");
 const equals = document.querySelector(".equals");
+const clear = document.querySelector(".clear");
 
 const add = (a, b) => {
   return a + b;
@@ -52,6 +49,14 @@ const operate = (a, b, op) => {
     return "Invalid Input";
   }
 };
+
+clear.addEventListener("click", () => {
+  num = "";
+  op = "";
+  sum = 0;
+
+  display.textContent = "";
+});
 
 one.addEventListener("click", () => {
   num += "1";
