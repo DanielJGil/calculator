@@ -138,21 +138,41 @@ addOp.addEventListener("click", () => {
     display.textContent = sum;
     display.textContent += "+";
   } else if (op === "*") {
-    sum *= Number(num);
-    sum = Number(sum);
+    if (num === "") {
+      sum += Number(num);
+      sum = Number(sum);
 
-    op = "+";
+      op = "+";
 
-    display.textContent = sum;
-    display.textContent += "+";
+      display.textContent = sum;
+      display.textContent += "+";
+    } else {
+      sum *= Number(num);
+      sum = Number(sum);
+
+      op = "+";
+
+      display.textContent = sum;
+      display.textContent += "+";
+    }
   } else if (op === "/") {
-    sum /= Number(num);
-    sum = Number(sum);
+    if (num === "") {
+      sum += Number(num);
+      sum = Number(sum);
 
-    op = "+";
+      op = "+";
 
-    display.textContent = sum;
-    display.textContent += "+";
+      display.textContent = sum;
+      display.textContent += "+";
+    } else {
+      sum /= Number(num);
+      sum = Number(sum);
+
+      op = "+";
+
+      display.textContent = sum;
+      display.textContent += "+";
+    }
   } else {
     sum += Number(num);
     sum = Number(sum);
@@ -176,21 +196,41 @@ subtractOp.addEventListener("click", () => {
     display.textContent = sum;
     display.textContent += "-";
   } else if (op === "*") {
-    sum *= Number(num);
-    sum = Number(sum);
+    if (num === "") {
+      sum += Number(num);
+      sum = Number(sum);
 
-    op = "-";
+      op = "-";
 
-    display.textContent = sum;
-    display.textContent += "-";
+      display.textContent = sum;
+      display.textContent += "-";
+    } else {
+      sum *= Number(num);
+      sum = Number(sum);
+
+      op = "-";
+
+      display.textContent = sum;
+      display.textContent += "-";
+    }
   } else if (op === "/") {
-    sum /= Number(num);
-    sum = Number(sum);
+    if (num === "") {
+      sum += Number(num);
+      sum = Number(sum);
 
-    op = "-";
+      op = "-";
 
-    display.textContent = sum;
-    display.textContent += "-";
+      display.textContent = sum;
+      display.textContent += "-";
+    } else {
+      sum /= Number(num);
+      sum = Number(sum);
+
+      op = "-";
+
+      display.textContent = sum;
+      display.textContent += "-";
+    }
   } else {
     if (sum === 0 || sum === "") {
       sum += Number(num);
