@@ -1,3 +1,11 @@
+// Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+
+// Users can get floating point numbers if they do the math required to get one, but they can’t type them in yet. Add a . button and let users input decimals! Make sure you don’t let them type more than one though: 12.3.56.5. It is hard to do math on these numbers. (disable the decimal button if there’s already one in the display)
+
+// Add a “backspace” button, so the user can undo if they click the wrong number.
+
+// Add keyboard support!
+
 let num = "";
 let op = "";
 let sum = "";
@@ -135,7 +143,11 @@ addOp.addEventListener("click", () => {
 
     op = "+";
 
-    display.textContent = sum;
+    if (sum !== Math.trunc(sum)) {
+      display.textContent = sum.toFixed(4);
+    } else {
+      display.textContent = sum;
+    }
     display.textContent += "+";
   } else if (op === "*") {
     if (num === "") {
@@ -144,7 +156,11 @@ addOp.addEventListener("click", () => {
 
       op = "+";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "+";
     } else {
       sum *= Number(num);
@@ -152,7 +168,11 @@ addOp.addEventListener("click", () => {
 
       op = "+";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "+";
     }
   } else if (op === "/") {
@@ -162,7 +182,11 @@ addOp.addEventListener("click", () => {
 
       op = "+";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "+";
     } else {
       sum /= Number(num);
@@ -170,7 +194,11 @@ addOp.addEventListener("click", () => {
 
       op = "+";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "+";
     }
   } else {
@@ -179,7 +207,11 @@ addOp.addEventListener("click", () => {
 
     op = "+";
 
-    display.textContent = sum;
+    if (sum !== Math.trunc(sum)) {
+      display.textContent = sum.toFixed(4);
+    } else {
+      display.textContent = sum;
+    }
     display.textContent += "+";
   }
 
@@ -193,7 +225,11 @@ subtractOp.addEventListener("click", () => {
 
     op = "-";
 
-    display.textContent = sum;
+    if (sum !== Math.trunc(sum)) {
+      display.textContent = sum.toFixed(4);
+    } else {
+      display.textContent = sum;
+    }
     display.textContent += "-";
   } else if (op === "*") {
     if (num === "") {
@@ -202,7 +238,11 @@ subtractOp.addEventListener("click", () => {
 
       op = "-";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "-";
     } else {
       sum *= Number(num);
@@ -210,7 +250,11 @@ subtractOp.addEventListener("click", () => {
 
       op = "-";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "-";
     }
   } else if (op === "/") {
@@ -220,7 +264,11 @@ subtractOp.addEventListener("click", () => {
 
       op = "-";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "-";
     } else {
       sum /= Number(num);
@@ -228,7 +276,11 @@ subtractOp.addEventListener("click", () => {
 
       op = "-";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "-";
     }
   } else {
@@ -238,7 +290,11 @@ subtractOp.addEventListener("click", () => {
 
       op = "-";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "-";
     } else {
       sum -= Number(num);
@@ -246,7 +302,11 @@ subtractOp.addEventListener("click", () => {
 
       op = "-";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "-";
     }
   }
@@ -254,13 +314,18 @@ subtractOp.addEventListener("click", () => {
 });
 
 multiplyOp.addEventListener("click", () => {
+  Math.trunc(sum);
   if (op === "-") {
     sum -= Number(num);
     sum = Number(sum);
 
     op = "*";
 
-    display.textContent = sum;
+    if (sum !== Math.trunc(sum)) {
+      display.textContent = sum.toFixed(4);
+    } else {
+      display.textContent = sum;
+    }
     display.textContent += "*";
   } else if (op === "+") {
     sum += Number(num);
@@ -268,7 +333,11 @@ multiplyOp.addEventListener("click", () => {
 
     op = "*";
 
-    display.textContent = sum;
+    if (sum !== Math.trunc(sum)) {
+      display.textContent = sum.toFixed(4);
+    } else {
+      display.textContent = sum;
+    }
     display.textContent += "*";
   } else if (op === "/") {
     if (num === "") {
@@ -277,7 +346,11 @@ multiplyOp.addEventListener("click", () => {
 
       op = "*";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "*";
     } else {
       sum /= Number(num);
@@ -285,7 +358,11 @@ multiplyOp.addEventListener("click", () => {
 
       op = "*";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "*";
     }
   } else {
@@ -295,7 +372,11 @@ multiplyOp.addEventListener("click", () => {
 
       op = "*";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "*";
     } else {
       sum *= Number(num);
@@ -303,7 +384,11 @@ multiplyOp.addEventListener("click", () => {
 
       op = "*";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "*";
     }
   }
@@ -318,7 +403,11 @@ divideOp.addEventListener("click", () => {
 
     op = "/";
 
-    display.textContent = sum;
+    if (sum !== Math.trunc(sum)) {
+      display.textContent = sum.toFixed(4);
+    } else {
+      display.textContent = sum;
+    }
     display.textContent += "/";
   } else if (op === "*") {
     if (num === "") {
@@ -327,7 +416,11 @@ divideOp.addEventListener("click", () => {
 
       op = "/";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "/";
     } else {
       sum *= Number(num);
@@ -335,7 +428,11 @@ divideOp.addEventListener("click", () => {
 
       op = "/";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "/";
     }
   } else if (op === "-") {
@@ -344,7 +441,11 @@ divideOp.addEventListener("click", () => {
 
     op = "/";
 
-    display.textContent = sum;
+    if (sum !== Math.trunc(sum)) {
+      display.textContent = sum.toFixed(4);
+    } else {
+      display.textContent = sum;
+    }
     display.textContent += "/";
   } else {
     if (sum === 0 || sum === "" || num === "") {
@@ -353,7 +454,11 @@ divideOp.addEventListener("click", () => {
 
       op = "/";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "/";
     } else {
       sum /= Number(num);
@@ -361,7 +466,11 @@ divideOp.addEventListener("click", () => {
 
       op = "/";
 
-      display.textContent = sum;
+      if (sum !== Math.trunc(sum)) {
+        display.textContent = sum.toFixed(4);
+      } else {
+        display.textContent = sum;
+      }
       display.textContent += "/";
     }
   }
@@ -371,11 +480,18 @@ divideOp.addEventListener("click", () => {
 
 equals.addEventListener("click", () => {
   sum = operate(sum, num, op);
-  display.textContent = sum;
-  num = "";
+  if (sum !== Math.trunc(sum)) {
+    display.textContent = sum.toFixed(4);
+  } else {
+    display.textContent = sum;
+  }
 
-  console.log("CLICK");
-  console.log(`num ${num}`);
-  console.log(`sum ${sum}`);
-  console.log(`op ${op}`);
+  op = "";
+  num = sum;
+  sum = "";
+
+  // console.log("CLICK");
+  // console.log(`num ${num}`);
+  // console.log(`sum ${sum}`);
+  // console.log(`op ${op}`);
 });
