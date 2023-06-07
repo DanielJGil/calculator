@@ -9,6 +9,7 @@
 let num = "";
 let op = "";
 let sum = "";
+let deletedNum = "";
 
 const one = document.querySelector(".one");
 const two = document.querySelector(".two");
@@ -28,6 +29,7 @@ const display = document.querySelector(".display");
 const equals = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
 const decimal = document.querySelector(".decimal");
+const back = document.querySelector(".back");
 
 const add = (a, b) => {
   return a + b;
@@ -72,6 +74,12 @@ decimal.addEventListener("click", () => {
     num += ".";
     display.textContent += ".";
   }
+});
+
+back.addEventListener("click", () => {
+  num = num.substring(0, num.length - 1);
+
+  display.textContent = sum + op + num;
 });
 
 one.addEventListener("click", () => {
