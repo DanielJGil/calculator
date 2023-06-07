@@ -196,10 +196,13 @@ addOp.addEventListener("click", () => {
 
       if (sum !== Math.trunc(sum)) {
         display.textContent = sum.toFixed(4);
+        display.textContent += "+";
+      } else if (op === "+" && num === 0) {
+        display.textContent = "BANK CARD DOWNLOADED";
       } else {
         display.textContent = sum;
+        display.textContent += "+";
       }
-      display.textContent += "+";
     }
   } else {
     sum += Number(num);
@@ -278,10 +281,13 @@ subtractOp.addEventListener("click", () => {
 
       if (sum !== Math.trunc(sum)) {
         display.textContent = sum.toFixed(4);
+        display.textContent += "-";
+      } else if (op === "-" && num === 0) {
+        display.textContent = "BANK CARD DOWNLOADED";
       } else {
         display.textContent = sum;
+        display.textContent += "-";
       }
-      display.textContent += "-";
     }
   } else {
     if (sum === 0 || sum === "") {
@@ -360,10 +366,13 @@ multiplyOp.addEventListener("click", () => {
 
       if (sum !== Math.trunc(sum)) {
         display.textContent = sum.toFixed(4);
+        display.textContent += "*";
+      } else if (op === "*" && num === 0) {
+        display.textContent = "BANK CARD DOWNLOADED";
       } else {
         display.textContent = sum;
+        display.textContent += "*";
       }
-      display.textContent += "*";
     }
   } else {
     if (sum === 0 || sum === "" || num === "") {
@@ -468,10 +477,13 @@ divideOp.addEventListener("click", () => {
 
       if (sum !== Math.trunc(sum)) {
         display.textContent = sum.toFixed(4);
+        display.textContent += "/";
+      } else if (op === "/" && num === 0) {
+        display.textContent = "BANK CARD DOWNLOADED";
       } else {
         display.textContent = sum;
+        display.textContent += "/";
       }
-      display.textContent += "/";
     }
   }
 
@@ -482,6 +494,8 @@ equals.addEventListener("click", () => {
   sum = operate(sum, num, op);
   if (sum !== Math.trunc(sum)) {
     display.textContent = sum.toFixed(4);
+  } else if (op === "/" && num === 0) {
+    display.textContent = "BANK CARD DOWNLOADED";
   } else {
     display.textContent = sum;
   }
