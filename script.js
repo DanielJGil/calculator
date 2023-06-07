@@ -1,6 +1,6 @@
-// Display a snarky error message if the user tries to divide by 0… and don’t let it crash your calculator!
+// Fix overflow of numbers, set limit
 
-// Users can get floating point numbers if they do the math required to get one, but they can’t type them in yet. Add a . button and let users input decimals! Make sure you don’t let them type more than one though: 12.3.56.5. It is hard to do math on these numbers. (disable the decimal button if there’s already one in the display)
+///////////////////////
 
 // Add a “backspace” button, so the user can undo if they click the wrong number.
 
@@ -27,6 +27,7 @@ const divideOp = document.querySelector(".divide");
 const display = document.querySelector(".display");
 const equals = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
+const decimal = document.querySelector(".decimal");
 
 const add = (a, b) => {
   return a + b;
@@ -61,77 +62,74 @@ const operate = (a, b, op) => {
 clear.addEventListener("click", () => {
   num = "";
   op = "";
-  sum = 0;
+  sum = "";
 
   display.textContent = "";
 });
 
+decimal.addEventListener("click", () => {
+  if (num.includes(".") === false) {
+    num += ".";
+    display.textContent += ".";
+  }
+});
+
 one.addEventListener("click", () => {
   num += "1";
-  num = Number(num);
 
   display.textContent += 1;
 });
 
 two.addEventListener("click", () => {
   num += "2";
-  num = Number(num);
 
   display.textContent += 2;
 });
 
 three.addEventListener("click", () => {
   num += "3";
-  num = Number(num);
 
   display.textContent += 3;
 });
 
 four.addEventListener("click", () => {
   num += "4";
-  num = Number(num);
 
   display.textContent += 4;
 });
 
 five.addEventListener("click", () => {
   num += "5";
-  num = Number(num);
 
   display.textContent += 5;
 });
 
 six.addEventListener("click", () => {
   num += "6";
-  num = Number(num);
 
   display.textContent += 6;
 });
 
 seven.addEventListener("click", () => {
   num += "7";
-  num = Number(num);
 
   display.textContent += 7;
 });
 
 eight.addEventListener("click", () => {
   num += "8";
-  num = Number(num);
 
   display.textContent += 8;
 });
 
 nine.addEventListener("click", () => {
   num += "9";
-  num = Number(num);
 
   display.textContent += 9;
 });
 
 zero.addEventListener("click", () => {
   num += "0";
-  num = Number(num);
 
   display.textContent += 0;
 });
@@ -144,7 +142,7 @@ addOp.addEventListener("click", () => {
     op = "+";
 
     if (sum !== Math.trunc(sum)) {
-      display.textContent = sum.toFixed(4);
+      display.textContent = sum.toFixed(1);
     } else {
       display.textContent = sum;
     }
@@ -157,7 +155,7 @@ addOp.addEventListener("click", () => {
       op = "+";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -169,7 +167,7 @@ addOp.addEventListener("click", () => {
       op = "+";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -183,7 +181,7 @@ addOp.addEventListener("click", () => {
       op = "+";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -195,7 +193,7 @@ addOp.addEventListener("click", () => {
       op = "+";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
         display.textContent += "+";
       } else if (op === "+" && num === 0) {
         display.textContent = "BANK CARD DOWNLOADED";
@@ -211,7 +209,7 @@ addOp.addEventListener("click", () => {
     op = "+";
 
     if (sum !== Math.trunc(sum)) {
-      display.textContent = sum.toFixed(4);
+      display.textContent = sum.toFixed(1);
     } else {
       display.textContent = sum;
     }
@@ -229,7 +227,7 @@ subtractOp.addEventListener("click", () => {
     op = "-";
 
     if (sum !== Math.trunc(sum)) {
-      display.textContent = sum.toFixed(4);
+      display.textContent = sum.toFixed(1);
     } else {
       display.textContent = sum;
     }
@@ -242,7 +240,7 @@ subtractOp.addEventListener("click", () => {
       op = "-";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -254,7 +252,7 @@ subtractOp.addEventListener("click", () => {
       op = "-";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -268,7 +266,7 @@ subtractOp.addEventListener("click", () => {
       op = "-";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -280,7 +278,7 @@ subtractOp.addEventListener("click", () => {
       op = "-";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
         display.textContent += "-";
       } else if (op === "-" && num === 0) {
         display.textContent = "BANK CARD DOWNLOADED";
@@ -297,7 +295,7 @@ subtractOp.addEventListener("click", () => {
       op = "-";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -309,7 +307,7 @@ subtractOp.addEventListener("click", () => {
       op = "-";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -328,7 +326,7 @@ multiplyOp.addEventListener("click", () => {
     op = "*";
 
     if (sum !== Math.trunc(sum)) {
-      display.textContent = sum.toFixed(4);
+      display.textContent = sum.toFixed(1);
     } else {
       display.textContent = sum;
     }
@@ -340,7 +338,7 @@ multiplyOp.addEventListener("click", () => {
     op = "*";
 
     if (sum !== Math.trunc(sum)) {
-      display.textContent = sum.toFixed(4);
+      display.textContent = sum.toFixed(1);
     } else {
       display.textContent = sum;
     }
@@ -353,7 +351,7 @@ multiplyOp.addEventListener("click", () => {
       op = "*";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -365,7 +363,7 @@ multiplyOp.addEventListener("click", () => {
       op = "*";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
         display.textContent += "*";
       } else if (op === "*" && num === 0) {
         display.textContent = "BANK CARD DOWNLOADED";
@@ -382,7 +380,7 @@ multiplyOp.addEventListener("click", () => {
       op = "*";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -394,7 +392,7 @@ multiplyOp.addEventListener("click", () => {
       op = "*";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -413,7 +411,7 @@ divideOp.addEventListener("click", () => {
     op = "/";
 
     if (sum !== Math.trunc(sum)) {
-      display.textContent = sum.toFixed(4);
+      display.textContent = sum.toFixed(1);
     } else {
       display.textContent = sum;
     }
@@ -426,7 +424,7 @@ divideOp.addEventListener("click", () => {
       op = "/";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -438,7 +436,7 @@ divideOp.addEventListener("click", () => {
       op = "/";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -451,7 +449,7 @@ divideOp.addEventListener("click", () => {
     op = "/";
 
     if (sum !== Math.trunc(sum)) {
-      display.textContent = sum.toFixed(4);
+      display.textContent = sum.toFixed(1);
     } else {
       display.textContent = sum;
     }
@@ -464,7 +462,7 @@ divideOp.addEventListener("click", () => {
       op = "/";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
       } else {
         display.textContent = sum;
       }
@@ -476,7 +474,7 @@ divideOp.addEventListener("click", () => {
       op = "/";
 
       if (sum !== Math.trunc(sum)) {
-        display.textContent = sum.toFixed(4);
+        display.textContent = sum.toFixed(1);
         display.textContent += "/";
       } else if (op === "/" && num === 0) {
         display.textContent = "BANK CARD DOWNLOADED";
@@ -491,9 +489,11 @@ divideOp.addEventListener("click", () => {
 });
 
 equals.addEventListener("click", () => {
+  num = Number(num);
+
   sum = operate(sum, num, op);
   if (sum !== Math.trunc(sum)) {
-    display.textContent = sum.toFixed(4);
+    display.textContent = sum.toFixed(1);
   } else if (op === "/" && num === 0) {
     display.textContent = "BANK CARD DOWNLOADED";
   } else {
